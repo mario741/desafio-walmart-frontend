@@ -1,0 +1,40 @@
+<app-menu></app-menu>
+<div class="container">
+  <h3>
+    Resultados para <b>{{ searchFor }}:</b>
+  </h3>
+  <div class="products_container">
+    <ng-container *ngFor="let product of products">
+      <section class="product_item">
+        <figure class="product_figure">
+          <img
+            *ngIf="product.image"
+            class="product_image"
+            [src]="product.image"
+            [alt]="product.description"
+          />
+        </figure>
+        <em class="product_description">
+          <label class="product_brand">{{ product.brand }}</label>
+          <label>{{ product.description }}</label>
+        </em>
+        <div *ngIf="product.discount == 0" class="product_content">
+          <em class="product_price">{{
+            product.price | currency: "CLP":"$"
+          }}</em>
+        </div>
+        <div *ngIf="product.discount > 0" class="product_content">
+          <em class="product_price">{{
+            product.priceDiscount | currency: "CLP":"$"
+          }}</em>
+          <em class="product_without_discount">{{
+            product.price | currency: "CLP":"$"
+          }}</em>
+          <label class="product_discount" *ngIf="product.discount > 0">{{
+            product.discount | percent
+          }}</label>
+        </div>
+      </section>
+    </ng-container>
+  </div>
+</div>

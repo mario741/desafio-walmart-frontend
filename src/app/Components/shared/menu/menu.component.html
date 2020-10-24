@@ -1,0 +1,20 @@
+<header class="site-header">
+  <div class="container">
+    <div class="logo">
+      <a routerLink="/">
+        <img width="150" alt="Lider Logo" src="assets/img/lider-logo.svg" />
+      </a>
+    </div>
+    <div class="search-box">
+      <form (ngSubmit)="search()">
+        <input
+          type="search"
+          class="form-control"
+          placeholder="¿Qué estas buscando?"
+          name="searchFor"
+          [(ngModel)]="searchFor"
+        />
+      </form>
+    </div>
+  </div>
+</header>
